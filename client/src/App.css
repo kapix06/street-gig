@@ -37,6 +37,7 @@ color: white;
 
 
 .Navbar {
+  position: fixed;
 width: 100%;
 display: flex; 
 flex-direction: row;
@@ -46,7 +47,7 @@ margin-top: 0px;
 
 /* login and Signup */
 
-form{
+form.auth {
   height: 420px;
   width: 300px;
   background-color: rgba(255,255,255,0.13);
@@ -76,14 +77,15 @@ form h1{
   text-align: center;
 }
 
-label{
+label.signup {
   display: block;
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
+  color: black;
 }
 
-input{
+input.signup {
   color: black;
   display: block;
   height: 50px;
@@ -128,4 +130,52 @@ button.login{
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
   margin-left: 60px;
+}
+
+.AddPage {
+background-color: rgb(189, 55, 55);
+display: flex;
+flex-direction: column;
+width: 100vw;
+height: 100vh;
+}
+
+.AddGig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input.gig {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #080710;
+  width: 500px;
+  align-items: center;
+}
+
+textarea.gig {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #080710;
+  width: 500px;
+  align-items: center;
+}
+
+button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }

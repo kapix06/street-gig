@@ -36,16 +36,16 @@ export default function Signup() {
 	return (
 		<div className="concert">
 			<h1>Signup</h1>
-			<form onSubmit={handleSubmit}>
+			<form className="auth" onSubmit={handleSubmit}>
 
-				<label htmlFor="email">Email: </label>
-				<input type="text" value={email} onChange={handleEmail} />
+				<label className="signup" htmlFor="email">Email: </label>
+				<input className="signup" type="text" value={email} onChange={handleEmail} />
 
-				<label htmlFor="password">Password: </label>
-				<input type="password" value={password} onChange={handlePassword} />
+				<label className="signup" htmlFor="password">Password: </label>
+				<input className="signup" type="password" value={password} onChange={handlePassword} />
 
-				<label htmlFor="name">Name: </label>
-				<input type="text" value={name} onChange={handleName} />
+				<label className="signup" htmlFor="name">Name: </label>
+				<input className="signup" type="text" value={name} onChange={handleName} />
 
 				<button className ="login" type="submit">Sign Up</button>
 			</form>
