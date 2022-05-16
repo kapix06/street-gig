@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const API_URL = "http://localhost:5005";
 
-
 export default function Signup() {
 
 	const [name, setName] = useState('');

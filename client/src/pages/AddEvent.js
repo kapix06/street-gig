@@ -1,35 +1,71 @@
-import axios from 'axios'
 import React, { useState } from 'react'
-
-
+import service from "../api/service";
 
 
 export default function AddEvent(props) {
 
+	const [imageUrl, setImageUrl] = useState("")
 	const [title, setTitle] = useState('')
 	const [description, setDescription] = useState('')
 	const [address, setAddress] = useState('')
-	const [date, setDate] = useState('')
+	const [date, setDate] = useState(undefined)
+	const [genre, setGenre] = useState('')
+
+	
+
+	const handleFileUpload = e => {
+		// console.log("The file to be uploaded is: ", e.target.files[0]);
+	 
+		const uploadData = new FormData();
+	 
+		// imageUrl => this name has to be the same as in the model since we pass
+		// req.body to .create() method when creating a new movie in '/api/movies' POST route
+		uploadData.append("imageUrl", e.target.files[0]);
+	 
+		service
+		  .uploadImage(uploadData)
+		  .then(response => {
+			// console.log("response is: ", response);
+			// response carries "secure_url" which we can use to update the state
+			setImageUrl(response.secure_url);
+		  })
+		  .catch(err => console.log("Error while uploading the file: ", err));
+	  };	
+	
 
 	const handleSubmit = e => {
 		e.preventDefault()
 		// send the form data to the backend
-		axios.post('/api/events', { title, description })
-			.then(response => {
-				console.log(response)
-				// reset the form
+		service
+		.addEvent ({ title, description, address, date, genre, imageUrl })
+		.then(res => {
+			// console.log("added new movie: ", res);
 				setTitle('')
 				setDescription('')
-				// refresh the list of projects in 'ProjectsList'
-				props.getAllEvents()
-			})
-			.catch(err => console.log(err))
-	}
+				setAddress('')
+				setDate(undefined)
+				setImageUrl("")
+				setGenre('')
+
+        // here you would redirect to some other page      
+      })
+      .catch(err => console.log("Error while adding the new concert: ", err));
+  };
 
 	return (
 		<div className='AddPage'>
 			<h1>Add a GIG</h1>
+
+
 			<form className="AddGig" onSubmit={handleSubmit}>
+		
+
+<label>Upload a Picture *</label>
+        <input type="file"  onChange={(e) => handleFileUpload(e)} />
+        {/* <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <input type="file" onChange={(e) => handleFileUpload(e)} /> */}
+
+
 				<input className="gig"
 					type="text"
 					placeholder='...Title...'
@@ -38,7 +74,7 @@ export default function AddEvent(props) {
 				/>
 			
 			    <input className="gig"
-					type="text"
+					type="date"
 					placeholder='...date...'
 					value={date}
 					onChange={e => setDate(e.target.value)}
@@ -52,10 +88,10 @@ export default function AddEvent(props) {
 				/>
 
 
-<label className="signup" for="genre">Choose a type:</label>
-<select name="genre" id="genre">
+<label className="genre" htmlFor="genre">Choose a type:</label>
+<select name="genre" id="genre" value={genre} onChange={(e) => setGenre(e.target.value)}>
  
-    <option value="Big Bass">Big Bass</option>
+    <option color= 'black' value="Big Bass">Big Bass</option>
     <option value="Guitare">Guitare</option>
 	<option value="Lets Dance">Lets Dance</option>
 	<option value="Sing along">Sing along</option>
@@ -71,7 +107,7 @@ export default function AddEvent(props) {
 					value={description}
 					onChange={e => setDescription(e.target.value)}
 				/>
-				<button type="submit">Add your Concert ➕</button>
+				<button className="gig" type="submit">Add your Concert ➕</button>
 			</form>
 		</div>
 	)

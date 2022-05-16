@@ -8,28 +8,30 @@ export default function Navbar() {
 
 	return (
 		<nav className='Navbar'>
+
 			<Link to='/'>
-				<button>Home</button>
+				<button className="btn btn-outline-light">Home</button>
 			</Link>
 			{isLoggedIn ?
 				(
 					<>
-						<Link to='/projects'>
-							<button>Projects</button>
+						<Link to='/allevents'>
+							<button className="btn btn-outline-light">Events</button>
 						</Link>
-						<button onClick={logoutUser}>Log out</button>
+						<button className="btn btn-outline-light" onClick={logoutUser}>Log out</button>
 					</>
 				) : (
 					<>
 						<Link to='/signup'>
-							<button>Signup</button>
+							<button className="btn btn-outline-light">Signup</button>
 						</Link>
 						<Link to='/login'>
-							<button>Login</button>
+							<button className="btn btn-outline-light">Login</button>
 						</Link>
 					</>
 				)
 			}
+			
 		</nav>
 	)
 }

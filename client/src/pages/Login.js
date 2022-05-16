@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth'
 
-
 const API_URL = "http://localhost:5005";
 
 export default function Login() {
@@ -29,7 +28,7 @@ export default function Login() {
 				verifyStoredToken()
 					.then(() => {
 						// redirect to projects
-						navigate('/')
+						navigate('/userpage')
 					})
 			})
 			.catch(err => {

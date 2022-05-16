@@ -37,13 +37,26 @@ color: white;
 
 
 .Navbar {
-  position: fixed;
-width: 100%;
+position: fixed;
+width: 100vw;
+height: 60px;
 display: flex; 
+align-items: center;
 flex-direction: row;
 justify-content: space-evenly;
 margin-top: 0px;
+border-bottom: 2px solid var(--border);
+background-color: rgba(34, 28, 28, 0.675);
+backdrop-filter: blur(15px);
+
 }
+
+.btn-outline-light {
+margin: 0;
+padding : 7px;
+top: 0;
+}
+
 
 /* login and Signup */
 
@@ -98,9 +111,10 @@ input.signup {
   font-weight: 300;
 }
 
-/*::placeholder{
-  color: #e5e5e5;
-}*/
+::placeholder{
+  color: rgb(34, 33, 33);
+  
+}
 
 button.login{
   margin-top: 50px;
@@ -119,7 +133,7 @@ button.login{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  height: 420px;
+  height: 500px;
   width: 350px;
   background-color: rgba(255,255,255,0.13);
   top: 50%;
@@ -130,10 +144,18 @@ button.login{
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
   margin-left: 60px;
+  margin-top: 100px;
+}
+
+.calendar {
+margin-bottom: 100px;
 }
 
 .AddPage {
-background-color: rgb(189, 55, 55);
+  background-image: url("/public/micro.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 display: flex;
 flex-direction: column;
 width: 100vw;
@@ -155,6 +177,7 @@ input.gig {
   color: #080710;
   width: 500px;
   align-items: center;
+  border-radius: 10px;
 }
 
 textarea.gig {
@@ -178,4 +201,40 @@ button {
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+
+button.gig {
+  margin-top: 50px;
+  width: 20%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.UserD {
+
+background-image: url("/public/micro.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+display: flex;
+flex-direction: column;
+width: 100vw;
+height: 100vh;
+color: white;
+
+}
+
+.UserCard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px; 
+  text-align: start;
+  margin-left: 50px;
 }

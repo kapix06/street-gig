@@ -12,10 +12,10 @@ console.log(date)
 	return (
 		<div className="concert">
    
-			<h1>Home Page 🦄 🌈</h1>
+			
 			
 <div className='calendar-container'>
-			<h2>Find a Free Concert in Berlin 🦄 !!! </h2>
+			<h2>Pick a day ; </h2>
 			<div className='calendar'>
 			<Calendar onChange={setDate} value={date} />
 			</div>
