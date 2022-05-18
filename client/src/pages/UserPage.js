@@ -1,36 +1,63 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import UserDetails from "../components/UserDetails.js";
 import EditUserDetails from "../components/EditUserDetails.js";
-import React, { useState, useEffect } from 'react';
-import { useParams} from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
+import { AuthContext } from "../context/auth.js";
+import EventsList from "../components/EventsList.js";
 
-const API_URL = "http://localhost:5005";
 
 function UserPage() {
 
-const { id } = useParams()
-const [user, setUser] = useState(null)   
+	const { id } = useParams()
+	const [currentUser, setCurrentUser] = useState(null)
 
-	useEffect(() => {
-		axios.get(`${API_URL}/user/${id}`)
+	const [changes, setChanges] = useState(false)
+
+	
+
+	
+
+	const getCurrentUser = () => {
+		axios.get(`/api/user/${id}`)
 			.then(response => {
 				console.log(response)
-				setUser(response.data)
+				setCurrentUser(response.data)
+				console.log('res', response.data);
 			})
 			.catch(err => console.log(err))
+	}
+
+	useEffect(() => {
+		getCurrentUser()
 	}, [])
 
 	return (
-        <>
-        <div >
-            <UserDetails user={user}/>
-            <EditUserDetails user={user}/>
-            <Link to="/AddEvent"><button className="primary-button">Create your event</button></Link>
-        </div>
+		<>
+			<div >
 
-     
-       </>
+<div>
+			{changes&& <EditUserDetails
+			        setChanges = {setChanges}
+					changes = {changes}
+					user={currentUser}
+					setUser={setCurrentUser}
+					getCurrentUser={getCurrentUser}
+				/> 
+				
+			 }
+</div>
+			<button onClick={() => setChanges(!changes)}>Edit my profile !</button>
+
+				<UserDetails user={currentUser} />
+
+				<EventsList user={currentUser?.events} />
+				
+				<Link to="/AddEvent"><button className="primary-button">Create your event</button></Link>
+			</div>
+
+
+		</>
 	)
 }
 

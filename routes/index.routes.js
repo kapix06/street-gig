@@ -38,6 +38,7 @@ router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
 // get a specific USER --for Edit User
 router.get('/user/:id', (req, res, next) => {
   User.findById(req.params.id)
+  .populate("events")
     .then(user => {
       res.status(200).json(user)
     })
@@ -64,17 +65,19 @@ router.put('/user/:id', (req, res, next) => {
 // create an Event
 router.post('/events', (req, res, next) => {
   //const { title, description } = req.body
-  //console.log("title",req.body)
-
-Event.create(req.body)
+  console.log("titlePPP",req.body)
+ const { title, description, address, date, genre, imageUrl, user} = req.body
+Event.create({ title, description, address, date, genre, imageUrl, owner: user })
     .then(createdEvent => {
       res.status(201).json(createdEvent)
     })
     .catch(err => next(err))
 });
 
+
+
 // get a specific Event
-router.get('/:id', (req, res, next) => {
+router.get('/events/:id', (req, res, next) => {
   Event.findById(req.params.id)
     .then(event => {
       res.status(200).json(event)

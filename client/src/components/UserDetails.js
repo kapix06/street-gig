@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import { AuthContext } from '../context/auth';
+
 
 
 //const API_URL = "http://localhost:5005";        
@@ -8,10 +8,10 @@ import { AuthContext } from '../context/auth';
 function UserDetails (props) {
 
 
-const { user } = useContext(AuthContext)
+const user = props.user
 
 
-console.log(user)
+console.log('user detail', user)
  
   
 

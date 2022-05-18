@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
 import service from "../api/service";
-
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/auth';
+import axios from "axios";
 
 export default function AddEvent(props) {
+
+
+	const { user } = useContext(AuthContext)
 
 	const [imageUrl, setImageUrl] = useState("")
 	const [title, setTitle] = useState('')
@@ -37,7 +42,7 @@ export default function AddEvent(props) {
 		e.preventDefault()
 		// send the form data to the backend
 		service
-		.addEvent ({ title, description, address, date, genre, imageUrl })
+		.addEvent ({ title, description, address, date, genre, imageUrl , user})
 		.then(res => {
 			// console.log("added new movie: ", res);
 				setTitle('')
@@ -46,6 +51,8 @@ export default function AddEvent(props) {
 				setDate(undefined)
 				setImageUrl("")
 				setGenre('')
+
+
 
         // here you would redirect to some other page      
       })
@@ -107,7 +114,9 @@ export default function AddEvent(props) {
 					value={description}
 					onChange={e => setDescription(e.target.value)}
 				/>
-				<button className="gig" type="submit">Add your Concert ➕</button>
+			<Link to={`/userpage/${user?._id}`}><button className="gig" type="submit">Add your Concert ➕</button></Link>
+				
+	
 			</form>
 		</div>
 	)

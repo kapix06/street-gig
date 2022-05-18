@@ -12,19 +12,17 @@ const userSchema = new Schema(
     description: String,
     location: String,
     imageUrl: String,
+    events: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+      } ]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   },
 
-  { events: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event",
-    }, 
-  ],
-}
 
 
 );

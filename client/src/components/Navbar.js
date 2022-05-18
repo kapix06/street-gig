@@ -12,13 +12,16 @@ export default function Navbar() {
 			<Link to='/'>
 				<button className="btn btn-outline-light">Home</button>
 			</Link>
+			<Link to='/allevents'>
+				<button className="btn btn-outline-light">Events</button>
+			</Link>
 			{isLoggedIn ?
 				(
 					<>
-						<Link to='/allevents'>
-							<button className="btn btn-outline-light">Events</button>
-						</Link>
+						
+						<Link to='/'>
 						<button className="btn btn-outline-light" onClick={logoutUser}>Log out</button>
+						</Link>
 					</>
 				) : (
 					<>

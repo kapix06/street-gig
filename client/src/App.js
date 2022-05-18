@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import AddEvent from './pages/AddEvent';
 import UserPage from './pages/UserPage';
 import AllEvents from './pages/AllEvents';
+import EventDetails from './pages/EventDetails';
 //import UserDetails from './components/UserDetails';
 
 
@@ -24,8 +25,9 @@ function App() {
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='/addEvent' element={<AddEvent />} />
-      <Route path='/userpage' element={<UserPage />} />
+      <Route path='/userpage/:id' element={<UserPage />} />
       <Route path='/allevents' element={<AllEvents />} />
+      <Route path='/events/:id' element={<EventDetails />} />
       </Routes>  
 
     

@@ -8,6 +8,11 @@ const eventSchema = new Schema({
     address : String,
     date : Date,
     genre : String,
+    owner: 
+        {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+        } 
 },
 
 {

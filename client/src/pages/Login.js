@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth'
@@ -15,30 +15,36 @@ export default function Login() {
 
 	const { storeToken, verifyStoredToken } = useContext(AuthContext)
 
+
+
 	const handleSubmit = e => {
 		e.preventDefault()
 		const requestBody = { email, password }
-		axios.post(`${API_URL}/auth/login`, requestBody)
+		axios.post(`/api/auth/login`, requestBody)
 			.then(response => {
 				// redirect to projects
-				console.log('i have a token mothafukkas')
+				//console.log('USER: ', response.data)
 				const token = response.data.authToken
-				// store the token
+				const user = response.data.foundUser
+				//console.log(user, "merde fait chier" )
+				// store the token	
 				storeToken(token)
-				verifyStoredToken()
+				verifyStoredToken()									
 					.then(() => {
-						// redirect to projects
-						navigate('/userpage')
+						// redirect to logged UserPage
+						console.log('USER: BLABLA', user)
+						navigate(`/userpage/${user._id}`)
 					})
 			})
 			.catch(err => {
-				const errorDescription = err.response.data.message
-				setErrorMessage(errorDescription)
+				//const errorDescription = err.response.data.message
+				//setErrorMessage(errorDescription)
 			})
 	}
 
 	const handleEmail = e => setEmail(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
+
 
 	return (
 

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { AuthContext } from '../context/auth';
+
 
 
 
@@ -10,6 +12,10 @@ export default function EditUserDetails(props) {
 console.log(props.user?._id)
 
 const navigate = useNavigate()
+
+const { user } = useContext(AuthContext)
+
+
 
 const [location, setLocation] = useState('')
 const [description, setDescription] = useState('')
@@ -21,10 +27,13 @@ const handleSubmit = e => {
     e.preventDefault()
     const requestBody = { location, description, name }
     // put request to the backend to update the project
-    axios.put(`${API_URL}/user/${props.user?._id}`, requestBody)
-        .then(() => {
+    axios.put(`/api/user/${props.user?._id}`, requestBody)
+        .then((updatedUser) => {
+            console.log('updatedUser', updatedUser);
+            props.getCurrentUser()
             // redirect to the project list
-            navigate('/userpage')
+           // navigate(`/userpage/${user._id}`)
+           props.setChanges(!props.changes)
         })
         .catch(err => console.log(err))
 }
