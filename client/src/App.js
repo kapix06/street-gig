@@ -9,11 +9,17 @@ import AddEvent from './pages/AddEvent';
 import UserPage from './pages/UserPage';
 import AllEvents from './pages/AllEvents';
 import EventDetails from './pages/EventDetails';
+
 //import UserDetails from './components/UserDetails';
 
 
 function App() {
+
+
   return (
+
+
+    
     <div className='App'>
       <header >
 

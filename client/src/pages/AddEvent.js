@@ -6,6 +6,7 @@ import axios from "axios";
 
 export default function AddEvent(props) {
 
+	const navigate = useNavigate()
 
 	const { user } = useContext(AuthContext)
 
@@ -54,7 +55,10 @@ export default function AddEvent(props) {
 
 
 
-        // here you would redirect to some other page      
+        // here you would redirect to some other page   
+		navigate(`/userpage/${user._id}`)
+		     
+
       })
       .catch(err => console.log("Error while adding the new concert: ", err));
   };
@@ -114,7 +118,7 @@ export default function AddEvent(props) {
 					value={description}
 					onChange={e => setDescription(e.target.value)}
 				/>
-			<Link to={`/userpage/${user?._id}`}><button className="gig" type="submit">Add your Concert ➕</button></Link>
+			<button className="gig" type="submit">Add your Concert ➕</button>
 				
 	
 			</form>

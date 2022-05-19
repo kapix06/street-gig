@@ -1,19 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function EventCard({ title, description, _id, imageUrl, address, date, genre}) {
+export default function EventCard({ title, _id, imageUrl, address, date, genre}) {
+
+
+
 	return (
 		<div className="AddGig ">
 		<div className='EventCard'>
 			<Link to={`/events/${_id}`}>
 				<h3>{title}</h3>
 			</Link>
-            <p> where?  {address}</p>
-            <p> when ? {date}</p>
-            <p> what ? {genre}</p>
-            <p style={{ maxWidth: "400px" }}>{description} </p>
-            <img src={imageUrl} alt="empty" style={{ position: 50, borderRadius: 20,resizeMode: "contain", height: 150,
-            width: 250}} />
+			<div className='insideCard'>
+            <p> <strong >WHERE ?</strong></p>
+			<p> {address}</p>
+            <p> <strong>WHEN ?</strong> </p>
+			<p>{date.slice(0, 10).split('-').reverse().join('/')}</p>
+            <p> <strong>WHAT ?</strong> </p>
+			<p>{genre}</p>
+
+			</div>
+            
+            <img src={imageUrl} alt="empty" style={{ position: 200, borderRadius: 20,resizeMode: "contain", height: 150,
+            width: 240}} />
 		</div>
 		</div>
 	)

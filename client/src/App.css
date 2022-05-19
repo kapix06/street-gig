@@ -29,6 +29,30 @@ background-repeat: no-repeat;
 background-position: center;
 width: 100vw;
 height: 100vh;
+
+
+}
+
+.EventDetailshome {
+  /*background-color: #080710;*/
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+ 
+  justify-content: flex-start;
+  flex-direction: row;
+  height: 540px;
+  width: 920px;
+  
+  bottom: 1%;
+  left: 30%;
+  border-radius: 10px;
+  
+  /*border: 2px solid rgba(255,255,255,0.4);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 10px 5px;*/
+ 
+  /*margin-top: 50px;*/
 }
 
 
@@ -267,16 +291,122 @@ overflow-x: auto;
   height: 460px;
   width: 300px;
   background-color: rgba(255,255,255,0.13);
- 
-  
+ align-items: center;
   border-radius: 10px;
   backdrop-filter: blur(15px);
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
-  padding: 20px 30px;
+  padding: 30px 30px;
   margin-left: 55px;
   margin-top: 100px; 
-  
+    
+}
 
+.EventCard2 {
+  flex: 0 0 auto;
   
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 250px;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.479);
+ align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.322);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 30px 10px;
+  margin-left: 55px;
+    
+}
+
+.EventCard2 h3 {
+font-size: 22px;
+color: #af4318;
+text-decoration: none;
+
+}
+
+.insideCard2
+{
+  font-size: 15px;
+  margin: 5px;
+  padding: 4px;
+  line-height: 0.5em;
+
+}
+
+
+.insideCard
+{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  line-height: 0.7em;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(8,7,16,0.6);
+height: 220px;
+ top: 20px;
+ position: relative;
+ top: 0px;
+ 
+}
+
+.EventDetails2 {
+  background-color: #0f0b2c;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  align-items: center;
+  }
+
+   
+
+  .EventDetails2 h3 {
+    font-size: 22px;
+  }
+
+  .EventDetails2 h5 {
+    color: black;
+    font-style: italic;
+    font-weight:bold;
+    font-size: 18px;
+    height: 450px;
+    width: 380px;
+    background-color: rgba(247, 241, 241, 0.329);
+    padding: 15px 15px;
+    border-radius: 10px;
+  }
+
+
+  .searchbuttonscool {
+  display: flex;
+ flex-wrap: wrap;
+  width: 320px;
+  height: 100px;
+  align-items: stretch;
+  position: relative;
+  bottom: 110px;
+  left: 93px
+}
+
+.searchButtons{
+  position: relative;
+  margin: 0.25em;
+  cursor: pointer;
+  border: none;
+  width: 85px;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  background-color: #211085;
+  border-radius: 10px;
+  border-style:hidden;
+}
+.searchButtons:focus{
+  background-color: #83370b;
 }

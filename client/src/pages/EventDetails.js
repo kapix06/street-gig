@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 
 export default function EventsDetails() {
@@ -20,20 +21,19 @@ export default function EventsDetails() {
 
 	return (
 		<>
-		<div className="EventDetails">
+		<div className="EventDetails2">
 			{event === null ? <h3>Loading...</h3> :
 			
 				<>
 					<h1>Event Details</h1>
 					
-					<img src={event.imageUrl} alt="empty" height={200}  width={200} />
+					<img src={event.imageUrl} alt="empty" height={200}  width={380} />
 					<h3>{event.title}</h3>
 					<h3>{event.address}</h3>
 					<h3>{event.date}</h3>
 					<h5>{event.description}</h5>
-					<Link to={`/events/edit/${event._id}`}>
-						<button>Edit this Event 📝</button>
-					</Link>
+					
+					<Link to="/allEvents"><button className="primary-button">Go BACK</button></Link>
 				</>
 				
 			}

@@ -27,7 +27,7 @@ export default function AllEvents() {
 
 	return (
 		<div className="EventDetails">
-			<h1>All Events</h1>
+			
 			{events.map(event => <EventCard key={event._id} {...event} />)}
 			<Link to="/addEvent">Add a Project</Link>
 		</div>

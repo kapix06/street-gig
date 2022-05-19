@@ -6,6 +6,8 @@ export default function Navbar() {
 
 	const { isLoggedIn, logoutUser } = useContext(AuthContext)
 
+	const { user } = useContext(AuthContext)
+
 	return (
 		<nav className='Navbar'>
 
@@ -21,6 +23,10 @@ export default function Navbar() {
 						
 						<Link to='/'>
 						<button className="btn btn-outline-light" onClick={logoutUser}>Log out</button>
+						</Link>
+
+						<Link to={`/userpage/${user._id}`}>
+						<button className="btn btn-outline-light" >My Space</button>
 						</Link>
 					</>
 				) : (
