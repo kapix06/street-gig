@@ -18,7 +18,7 @@ console.log('user detail', user)
 
 
 return (
-        <div className="UserD">
+        <div className="UserD2">
 
         <div className='UserCard'>
 

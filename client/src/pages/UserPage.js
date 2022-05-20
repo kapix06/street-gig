@@ -49,13 +49,16 @@ function UserPage() {
 </div>
 
 <div className="userpage">
-			<button onClick={() => setChanges(!changes)}>Edit my profile !</button>
+			<button className="merde" onClick={() => setChanges(!changes)}>Edit my profile !</button>
 			<div className="userdetails">
 				<UserDetails user={currentUser} />
                  </div>
-				<Link to="/AddEvent"><button className="primary-button">Create your event</button></Link>
+
+				<Link to="/AddEvent"><button className="boutondem">Create your event</button></Link>
 
 				<EventsList />
+
+				
 				
 				</div>
 				</div>

@@ -71,7 +71,7 @@ useEffect(() => {
 			
 			
 <div className='calendar-container'>
-			<h2>Pick a day ; </h2>
+			<h2>pick a date </h2>
 			<div className='calendar'>
 			<Calendar onChange={setDate} value={date} />
 			</div>

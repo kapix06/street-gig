@@ -30,7 +30,6 @@ background-position: center;
 width: 100vw;
 height: 100vh;
 
-
 }
 
 .EventDetailshome {
@@ -261,6 +260,22 @@ color: white;
 
 }
 
+
+.UserD2 {
+
+  background-image: url("/public/micro.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  width: 100vw;
+  height: 280px;
+  color: white;
+  
+  }
+
 .UserCard {
   display: flex;
   flex-direction: column;
@@ -409,4 +424,26 @@ height: 220px;
 }
 .searchButtons:focus{
   background-color: #83370b;
+}
+
+
+.userpage {
+  
+ 
+}
+
+
+.boutondem {
+
+margin-left: 0%;
+justify-content: center;
+margin-top: 0em;
+display: flex;
+align-content: center;
+width: 100%;
+background-color: blueviolet;
+}
+
+.merde {
+  
 }

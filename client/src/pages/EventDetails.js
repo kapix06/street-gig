@@ -33,7 +33,7 @@ export default function EventsDetails() {
 					<h3>{event.date}</h3>
 					<h5>{event.description}</h5>
 					
-					<Link to="/allEvents"><button className="primary-button">Go BACK</button></Link>
+					<Link to="/"><button className="primary-button">Go BACK</button></Link>
 				</>
 				
 			}
